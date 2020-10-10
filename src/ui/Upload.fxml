@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.uploadViewController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="369.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="274.0" layoutY="330.0" mnemonicParsing="false" text="Submit" />
+            <TextArea fx:id="memoryTXT" layoutX="274.0" layoutY="159.0" prefHeight="129.0" prefWidth="215.0" />
+            <ChoiceBox fx:id="fileChooser" layoutX="274.0" layoutY="100.0" prefWidth="150.0" />
+            <Label layoutX="71.0" layoutY="104.0" prefHeight="19.0" prefWidth="93.0" text="File type" />
+            <Label layoutX="71.0" layoutY="168.0" prefHeight="19.0" prefWidth="83.0" text="Memory" />
+            <Label layoutX="71.0" layoutY="37.0" text="Memory Title" />
+            <TextField fx:id="memoryTitleTXT" layoutX="274.0" layoutY="33.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
