@@ -10,16 +10,20 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
+	
+	public static Stage stage;
+	
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage newStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/Homepage.fxml"));
+			stage = newStage;
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/StartupPanel.fxml"));
 	        Parent root = loader.load();
 	        Scene scene = new Scene(root);
-	        primaryStage.setScene(scene);
+	        stage.setScene(scene);
 //	        loader.setRoot(root);
-	        primaryStage.setTitle("Memoirs");
-	        primaryStage.show();
+	        stage.setTitle("StartupPanel");
+	        stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
