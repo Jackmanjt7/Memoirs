@@ -63,7 +63,7 @@
       </Text>
       <TextField fx:id="FatherTextField" layoutX="547.0" layoutY="50.0" prefHeight="25.0" prefWidth="208.0" />
       <TextField fx:id="MotherTextField" layoutX="547.0" layoutY="99.0" prefHeight="25.0" prefWidth="208.0" />
-      <RadioButton fx:id="AdoptedRadioButton" layoutX="479.0" layoutY="177.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="112.0" text="I was Adopted" />
+      <RadioButton fx:id="AdoptedRadioButton" layoutX="479.0" layoutY="177.0" mnemonicParsing="false" onAction="#toggleAdopted" prefHeight="17.0" prefWidth="112.0" text="I was Adopted" />
       <Text layoutX="479.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adoptive Parent 1" wrappingWidth="148.50780963897705">
          <font>
             <Font name="Book Antiqua" size="18.0" />
@@ -74,8 +74,8 @@
             <Font name="Book Antiqua" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="AdoptiveParent1TextField" disable="true" layoutX="479.0" layoutY="241.0" prefHeight="25.0" prefWidth="208.0" />
-      <TextField fx:id="AdoptiveParent2TextField" disable="true" layoutX="479.0" layoutY="310.0" prefHeight="25.0" prefWidth="208.0" />
+      <TextField fx:id="AdoptiveParent1TextField" editable="false" layoutX="479.0" layoutY="241.0" prefHeight="25.0" prefWidth="208.0" />
+      <TextField fx:id="AdoptiveParent2TextField" editable="false" layoutX="479.0" layoutY="310.0" prefHeight="25.0" prefWidth="208.0" />
       <Button fx:id="ContinueButton" layoutX="479.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#Continue" prefHeight="85.0" prefWidth="286.0" text="Continue">
          <font>
             <Font name="Calibri" size="36.0" />
