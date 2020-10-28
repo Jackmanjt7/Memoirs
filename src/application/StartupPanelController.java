@@ -9,13 +9,12 @@ import javafx.stage.Stage;
 
 public class StartupPanelController {
 	
-	@FXML
-	private Button CreateMemoirButton;
+	@FXML private Button CreateMemoirButton;
 
-	@FXML
+	@FXML 
 	private void CreateNewMemoir() {
 		try{
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ui/InitialSetup.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ui/CreateNewSaveFile.fxml"));
 			Parent root = fxmlLoader.load();
 
 			Main.stage.setScene(new Scene(root));

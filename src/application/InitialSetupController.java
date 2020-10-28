@@ -36,8 +36,6 @@ public class InitialSetupController {
 	
 	@FXML
 	private void Continue() {
-		createProjectDirectory(); //Sets the top-level dir of the new project
-		
 		parseInputFromFXMLPanel(); //matches UI component input to class fields 
 		try{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ui/Homepage.fxml"));
@@ -64,15 +62,7 @@ public class InitialSetupController {
 		//This is where we will write personal info to xml
 	}
 	
-	private void createProjectDirectory() {
-		String path = "C:\\MemoirTestProject";
-		File file = new File(path);
-		if(file.mkdir()) {
-			System.out.println("Directory created at " + path);
-		}else {
-			System.out.println("mkdir failed (if still testing, delete " + path + " and try again)");
-		}
-	}
+	
 	
 	private String constructBirthPlaceString() {
 		String hometown, state, country;
