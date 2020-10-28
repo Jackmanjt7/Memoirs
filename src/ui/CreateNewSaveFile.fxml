@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateNewSaveFileController">
+   <children>
+      <TextField fx:id="ProjectNameTextField" layoutX="115.0" layoutY="101.0" prefHeight="25.0" prefWidth="191.0" />
+      <Text layoutX="131.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please Enter a Project Name" wrappingWidth="158.412109375" />
+      <Button fx:id="NextButton" layoutX="313.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#next" prefHeight="25.0" prefWidth="73.0" text="Next" />
+      <Button fx:id="CancelButton" layoutX="226.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
+   </children>
+</Pane>
