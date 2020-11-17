@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 public class Main extends Application {
 	
 	public static Stage stage;
+	public static String PROJECT_PATH; //This is where we store which project folder we are using
 	
 	@Override
 	public void start(Stage newStage) {

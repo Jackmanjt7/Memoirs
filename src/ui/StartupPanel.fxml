@@ -12,7 +12,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="SelectMemoirButton" layoutX="66.0" layoutY="188.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="217.0" text="Select Existing Memoir">
+      <Button fx:id="SelectMemoirButton" layoutX="66.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#SelectExistingMemoir" prefHeight="51.0" prefWidth="217.0" text="Select Existing Memoir">
          <font>
             <Font size="18.0" />
          </font>

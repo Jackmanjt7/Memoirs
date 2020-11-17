@@ -10,6 +10,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+
+import data.JsonWriter;
 
 public class InitialSetupController {
 
@@ -37,6 +40,14 @@ public class InitialSetupController {
 	@FXML
 	private void Continue() {
 		parseInputFromFXMLPanel(); //matches UI component input to class fields 
+		try {
+			JsonWriter.addPersonalInfoToJson(FirstName, LastName, Birthday, Birthplace, CurrentHome, Father, Mother, AdoptiveParent1, AdoptiveParent2);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			System.out.println("Json Writer has Failed");
+			System.exit(0);
+		}
 		try{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ui/Homepage.fxml"));
 			Parent root = fxmlLoader.load();
@@ -50,7 +61,7 @@ public class InitialSetupController {
 	private void parseInputFromFXMLPanel() {
 		FirstName = FirstNameTextField.getText();
 		LastName = LastNameTextField.getText();
-		Birthday = DateOfBirthDatePicker.toString();
+		Birthday = DateOfBirthDatePicker.getValue().toString();
 		Birthplace = constructBirthPlaceString();
 		CurrentHome = constructCurrentHomeString();
 		Father = FatherTextField.getText();
@@ -117,6 +128,23 @@ public class InitialSetupController {
 		}
 	}
 	
+	public void setValuesToPersonalInfoClass() {
+		PersonalInfo.setFIRST_NAME(FirstName);
+		PersonalInfo.setLAST_NAME(LastName);
+		PersonalInfo.setBIRTHDAY(Birthday);
+		PersonalInfo.setBIRTHPLACE(Birthplace);
+		PersonalInfo.setCURRENT_HOME(CurrentHome);
+		PersonalInfo.setFATHER(Father);
+		PersonalInfo.setMOTHER(Mother);
+		
+		PersonalInfo.setAdopted(Adopted);
+		if(Adopted) {
+			PersonalInfo.setADOPTIVE_PARENT_1(AdoptiveParent1);
+			PersonalInfo.setADOPTIVE_PARENT_2(AdoptiveParent2);
+			
+		}
+		
+	}
 	
 }
 

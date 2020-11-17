@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 
 public class CreateNewSaveFileController {
 
+	//public String projectPath;
+	
 	@FXML private Button NextButton, CancelButton;
 	@FXML private TextField ProjectNameTextField;
 	
@@ -45,6 +47,7 @@ public class CreateNewSaveFileController {
 		file = new File(path);
 		if(file.mkdir()) {
 			System.out.println("Directory created at " + path);
+			Main.PROJECT_PATH = path; //This is so that a running instance of the app knows WHICH project folder to look in for data
 		}else {
 			System.out.println("mkdir failed --- duplicate project?");
 		}
