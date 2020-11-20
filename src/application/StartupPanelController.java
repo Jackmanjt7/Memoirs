@@ -60,5 +60,6 @@ public class StartupPanelController {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
 	}
 }

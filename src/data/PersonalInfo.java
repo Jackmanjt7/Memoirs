@@ -1,4 +1,4 @@
-package application;
+package data;
 
 // STATIC CLASS, DO NOT INSTANTIATE 
 public class PersonalInfo {
@@ -94,6 +94,16 @@ public class PersonalInfo {
 	
 	public static boolean isAdopted() {
 		return ADOPTED;
+	}
+	
+	public static String allInfoToString() {
+		String info = "";
+		info += "First Name: " + getFIRST_NAME() + "\n";
+		info += "Last Name: " + getLAST_NAME() + "\n";
+		info += "DOB: " + getBIRTHDAY() + "\n";
+		info += "Birthplace: " + getBIRTHPLACE() + "\n";
+		info += "Current Home: " + getCURRENT_HOME() + "\n";
+		return info;
 	}
 	
 	

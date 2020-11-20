@@ -8,8 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.*;
 
-import application.Main;
-import application.PersonalInfo; 
+import application.Main; 
   
 public class JsonReader  
 { 

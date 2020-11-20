@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import data.JsonWriter;
+import data.PersonalInfo;
 
 public class InitialSetupController {
 
@@ -41,7 +42,10 @@ public class InitialSetupController {
 	private void Continue() {
 		parseInputFromFXMLPanel(); //matches UI component input to class fields 
 		try {
-			JsonWriter.addPersonalInfoToJson(FirstName, LastName, Birthday, Birthplace, CurrentHome, Father, Mother, AdoptiveParent1, AdoptiveParent2);
+			JsonWriter.addPersonalInfoToJson(FirstName, LastName, 
+					Birthday, Birthplace, CurrentHome, Father, 
+					Mother, AdoptiveParent1, AdoptiveParent2);
+			setValuesToPersonalInfoClass();
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -49,7 +53,7 @@ public class InitialSetupController {
 			System.exit(0);
 		}
 		try{
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ui/Homepage.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ui/TimelineHome.fxml"));
 			Parent root = fxmlLoader.load();
 			Main.stage.setScene(new Scene(root));
 			Main.stage.show();
