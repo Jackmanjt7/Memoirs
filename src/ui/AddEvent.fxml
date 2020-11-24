@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<Pane fx:id="AddEventPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddEventController">
+<Pane fx:id="AddEventPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TimelineHomeController">
    <children>
       <Text layoutX="264.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Timeline Item" textAlignment="CENTER" wrappingWidth="150.13671875" />
       <Text layoutX="14.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event Title" wrappingWidth="81.13671875" />
@@ -21,7 +21,7 @@
       <Button fx:id="UploadButton" layoutX="309.0" layoutY="149.0" mnemonicParsing="false" text="Upload File(s)" />
       <ListView fx:id="FileList" layoutX="408.0" layoutY="149.0" prefHeight="144.0" prefWidth="221.0" />
       <Button fx:id="DoneButton" layoutX="577.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="40.0" prefWidth="88.0" text="Done" />
-      <Button fx:id="CancelButton" layoutX="474.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="40.0" prefWidth="88.0" text="Cancel" />
+      <Button fx:id="CancelButton" layoutX="474.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#closeStage" prefHeight="40.0" prefWidth="88.0" text="Cancel" />
       <TextArea fx:id="EventDescriptionTextArea" layoutX="51.0" layoutY="340.0" prefHeight="269.0" prefWidth="581.0" promptText="Write a description or summary of the event..." />
       <Text layoutX="51.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="81.1367171946913" />
    </children>

@@ -1,6 +1,9 @@
 package data;
 
-import java.io.FileReader; 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator; 
 import java.util.Map; 
   
@@ -41,6 +44,50 @@ public class JsonReader
         PersonalInfo.setMOTHER(mother);
         //PersonalInfo.setAdopted(adopted);
     } 
+    
+    public static ArrayList<TimelineEvent> getEventsFromJson() throws FileNotFoundException, IOException, ParseException{
+    	ArrayList<TimelineEvent> eventArrayList = new ArrayList<TimelineEvent>();
+    	Object obj = new JSONParser().parse(new FileReader(Main.PROJECT_PATH + "\\events.json")); 
+    	JSONObject jsonObject = (JSONObject) obj;
+    	JSONArray jsonArray = (JSONArray) jsonObject.get("events"); 
+    	Map event;
+    	
+    	Iterator i = jsonArray.iterator();
+    	while(i.hasNext()) {
+    		event = (Map) i.next();
+    		TimelineEvent newTimlineEvent = new TimelineEvent(
+    				(String) event.get("eventTitle"),
+    				(String) event.get("eventLocation"),
+    				(String) event.get("eventDate"),
+    				(String) event.get("eventDescription"));
+    		eventArrayList.add(newTimlineEvent);
+    		//Metadata.EVENT_LIST.add(newTimlineEvent);
+    	}
+    	Metadata.EVENT_LIST = eventArrayList;
+    	return eventArrayList;
+    	
+    }
+    
+    public static void loadEvents() throws FileNotFoundException, IOException, ParseException {
+    	ArrayList<TimelineEvent> eventArrayList = new ArrayList<TimelineEvent>();
+    	Object obj = new JSONParser().parse(new FileReader(Main.PROJECT_PATH + "\\events.json")); 
+    	JSONObject jsonObject = (JSONObject) obj;
+    	JSONArray jsonArray = (JSONArray) jsonObject.get("events"); 
+    	Map event;
+    	
+    	Iterator i = jsonArray.iterator();
+    	while(i.hasNext()) {
+    		event = (Map) i.next();
+    		TimelineEvent newTimlineEvent = new TimelineEvent(
+    				(String) event.get("eventTitle"),
+    				(String) event.get("eventTitle"),
+    				(String) event.get("eventTitle"),
+    				(String) event.get("eventTitle"));
+    		eventArrayList.add(newTimlineEvent);
+    		//Metadata.EVENT_LIST.add(newTimlineEvent);
+    	}
+    	Metadata.EVENT_LIST = eventArrayList;
+    }
     
     
     

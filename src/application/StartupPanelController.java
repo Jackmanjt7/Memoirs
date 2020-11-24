@@ -54,12 +54,16 @@ public class StartupPanelController {
 		try{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ui/TimelineHome.fxml"));
 			Parent root = fxmlLoader.load();
-
+			
 			Main.stage.setScene(new Scene(root));
 			Main.stage.show();
+			//fill list upon display
+			((TimelineHomeController) fxmlLoader.getController()).fillEventListView();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		
 		
 	}
 }

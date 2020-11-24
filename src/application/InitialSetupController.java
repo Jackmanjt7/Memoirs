@@ -145,7 +145,6 @@ public class InitialSetupController {
 		if(Adopted) {
 			PersonalInfo.setADOPTIVE_PARENT_1(AdoptiveParent1);
 			PersonalInfo.setADOPTIVE_PARENT_2(AdoptiveParent2);
-			
 		}
 		
 	}
