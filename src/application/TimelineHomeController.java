@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.json.simple.parser.ParseException;
 
+import data.FileOperator;
 import data.JsonReader;
 import data.JsonWriter;
 import data.Metadata;
@@ -108,11 +109,12 @@ public class TimelineHomeController {
 					EventDescriptionTextArea.getText(),
 					FileList.getItems());
 			
-			File pictureDirectory = new File(Main.PROJECT_PATH + "\\Pictures");
+			String pictureDirectory = Main.PROJECT_PATH + "\\Pictures\\";
 			for(int i = 0; i < newEvent.getFiles().size(); i++) {
-				///////////////////////////
-				//	NEED TO SAVE FILES TO /Pictures
-				//////////////////////////
+				File temp = new File(pictureDirectory + newEvent.getFiles().get(i).getName());
+				FileOperator.copy(newEvent.getFiles().get(i), temp );
+				System.out.println(pictureDirectory + newEvent.getFiles().get(i).getName());
+				System.out.println(temp.getAbsolutePath());
 			}
 			
 		}
