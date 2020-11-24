@@ -22,7 +22,7 @@
       <ListView fx:id="FileList" layoutX="408.0" layoutY="149.0" prefHeight="144.0" prefWidth="221.0" />
       <Button fx:id="DoneButton" layoutX="577.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="40.0" prefWidth="88.0" text="Done" />
       <Button fx:id="CancelButton" layoutX="474.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#closeStage" prefHeight="40.0" prefWidth="88.0" text="Cancel" />
-      <TextArea fx:id="EventDescriptionTextArea" layoutX="51.0" layoutY="340.0" prefHeight="269.0" prefWidth="581.0" promptText="Write a description or summary of the event..." />
+      <TextArea fx:id="EventDescriptionTextArea" layoutX="51.0" layoutY="340.0" prefHeight="269.0" prefWidth="581.0" promptText="Write a description or summary of the event..." wrapText="true" />
       <Text layoutX="51.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="81.1367171946913" />
    </children>
 </Pane>

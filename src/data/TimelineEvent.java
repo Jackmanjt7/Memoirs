@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.Main;
+
 public class TimelineEvent {
 
 	private String title, description, location, date;
@@ -22,6 +24,17 @@ public class TimelineEvent {
 		date = eventDate;
 		location = eventLocation;
 		setFiles(eventfiles);
+	}
+	
+	
+	//creates file list from list of filenames
+	private void initFiles(List<String> filenames) {
+		ArrayList<File> newfiles = new ArrayList<File>();
+		for(int i = 0; i < filenames.size(); i++) {
+			File temp = new File(Main.PROJECT_PATH + "\\Pictures\\" + filenames.get(i));
+			newfiles.add(temp);
+		}
+		files = newfiles;
 	}
 
 	public String getTitle() {
@@ -101,6 +114,13 @@ public class TimelineEvent {
 
 	public void setFiles(List<File> files) {
 		this.files = files;
+	}
+	
+	public boolean hasPictures() {
+		if(files.isEmpty()) {
+			return false;
+		}
+		return true;
 	}
 	
 	

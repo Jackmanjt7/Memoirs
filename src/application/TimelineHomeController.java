@@ -16,6 +16,7 @@ import data.JsonWriter;
 import data.Metadata;
 import data.PersonalInfo;
 import data.TimelineEvent;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +27,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -43,7 +46,9 @@ public class TimelineHomeController {
 	@FXML ListView<File> FileList;
 	@FXML Pane AddEventPane;
 	@FXML TextArea EventTextArea;	//In the Main Pane Under the Image Viewer
-	
+	@FXML ImageView MainImageView;
+	@FXML ListView<File> PicturesListView;
+	Image displayedImage;
 	
 	@FXML
 	public void displayInfo(){
@@ -61,7 +66,32 @@ public class TimelineHomeController {
 			TimelineEvent event = Metadata.getEvent(EventListView.getSelectionModel().getSelectedItem());
 			EventTextArea.setText(event.getLocation() + "  -  " + event.getPrettyDate() + "\n" + event.getDescription());
 			
+			//Fill PicturesListView
+			PicturesListView.getItems().clear();
+			for(int i = 0; i < event.getFiles().size(); i++) {
+				PicturesListView.getItems().add(event.getFiles().get(i));
+			}
+			//PicturesListView.setItems((ObservableList<File>) event.getFiles());
+			PicturesListView.getSelectionModel().select(event.getFiles().get(0));
+			displaySelectedImage();
+			
 		}
+	}
+	
+	private void displayImage(File file) {
+		String filename = file.getName();
+		String path = "file:///" + Main.PROJECT_PATH + "\\Pictures\\" + filename;
+		
+		System.out.println(path);
+	    Image image = new Image(path);
+	    displayedImage = image;
+	    MainImageView.setImage(image);
+	}
+	
+	@FXML
+	private void displaySelectedImage() {
+		File file = PicturesListView.getSelectionModel().getSelectedItem();
+		displayImage(file);
 	}
 	
 	@FXML
@@ -113,8 +143,8 @@ public class TimelineHomeController {
 			for(int i = 0; i < newEvent.getFiles().size(); i++) {
 				File temp = new File(pictureDirectory + newEvent.getFiles().get(i).getName());
 				FileOperator.copy(newEvent.getFiles().get(i), temp );
-				System.out.println(pictureDirectory + newEvent.getFiles().get(i).getName());
-				System.out.println(temp.getAbsolutePath());
+				//System.out.println(pictureDirectory + newEvent.getFiles().get(i).getName());
+				//System.out.println(temp.getAbsolutePath());
 			}
 			
 		}
@@ -154,13 +184,34 @@ public class TimelineHomeController {
 			selectedFiles = fileChooser.showOpenMultipleDialog(Main.stage);
 		}
 		
-		//Add to JSON and Field
+		//Add to Field
 		
 		for(int i = 0; i < selectedFiles.size(); i++) {
 			String filename = selectedFiles.get(i).getName(); //get filename
 			FileList.getItems().add(selectedFiles.get(i)); //add File to list view
-			
 		}
+	}
+	
+	@FXML
+	private void nextImage() {
+		int index = PicturesListView.getSelectionModel().getSelectedIndex();
+		if(index + 1 >= PicturesListView.getItems().size()) {
+			PicturesListView.getSelectionModel().select(0);		
+		} else {
+			PicturesListView.getSelectionModel().select(index + 1);
+		}
+		displaySelectedImage();
+	}
+	
+	@FXML
+	private void prevImage() {
+		int index = PicturesListView.getSelectionModel().getSelectedIndex();
+		if(index - 1 < 0) {
+			PicturesListView.getSelectionModel().select(PicturesListView.getItems().size() - 1);		
+		} else {
+			PicturesListView.getSelectionModel().select(index - 1);
+		}
+		displaySelectedImage();
 	}
 
 	

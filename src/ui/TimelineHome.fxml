@@ -5,15 +5,19 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TimelineHomeController">
    <children>
-      <Button layoutX="46.0" layoutY="632.0" mnemonicParsing="false" onMouseClicked="#displayInfo" text="View Info" />
-      <Button fx:id="AddEventButton" layoutX="159.0" layoutY="632.0" mnemonicParsing="false" onMouseClicked="#addEvent" text="Add Event" />
-      <Button layoutX="275.0" layoutY="632.0" mnemonicParsing="false" text="Save" />
-      <ImageView fx:id="MainImageView" fitHeight="315.0" fitWidth="478.0" layoutX="624.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="28.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#displayInfo" text="View Info" />
+      <Button fx:id="AddEventButton" layoutX="110.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#addEvent" text="Add Event" />
+      <ImageView fx:id="MainImageView" fitHeight="315.0" fitWidth="478.0" layoutX="630.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
       <ListView fx:id="EventListView" layoutX="28.0" layoutY="63.0" onMouseClicked="#displaySelectedEvent" prefHeight="484.0" prefWidth="305.0" />
-      <TextArea fx:id="EventTextArea" editable="false" layoutX="630.0" layoutY="378.0" prefHeight="200.0" prefWidth="478.0" />
+      <TextArea fx:id="EventTextArea" editable="false" layoutX="630.0" layoutY="422.0" prefHeight="200.0" prefWidth="478.0" wrapText="true" />
+      <Button layoutX="630.0" layoutY="383.0" mnemonicParsing="false" onMouseClicked="#prevImage" text="Prev" />
+      <Button layoutX="1056.0" layoutY="383.0" mnemonicParsing="false" onMouseClicked="#nextImage" prefWidth="51.0" text="Next" />
+      <ListView fx:id="PicturesListView" layoutX="389.0" layoutY="63.0" onMouseClicked="#displaySelectedImage" prefHeight="359.0" prefWidth="200.0" />
+      <Text layoutX="155.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Events" wrappingWidth="50.99998742341995" />
+      <Text layoutX="464.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pictures" wrappingWidth="50.99998742341995" />
    </children>
 </Pane>
