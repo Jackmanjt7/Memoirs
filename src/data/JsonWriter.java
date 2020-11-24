@@ -66,11 +66,19 @@ public class JsonWriter
     	//Map for event data  	
     	Map event = new LinkedHashMap(4);
     	
+    	//Writes picture files
+    	JSONArray filesArray = new JSONArray();
+    	for(int i = 0; i < newEvent.getFiles().size(); i++) {
+    		String filename = newEvent.getFiles().get(i).getName();
+    		filesArray.add(filename);
+    	}
+    	
         // putting data to JSONObject 
     	event.put("eventTitle", newEvent.getTitle()); 
     	event.put("eventLocation", newEvent.getLocation()); 
     	event.put("eventDate", newEvent.getDate()); 
-    	event.put("eventDescription", newEvent.getDescription()); 
+    	event.put("eventDescription", newEvent.getDescription());
+    	event.put("eventFiles", filesArray);
     	
     	jsonArray.add(event);
         jo.put("events", jsonArray);

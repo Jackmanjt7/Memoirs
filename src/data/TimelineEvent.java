@@ -2,17 +2,26 @@ package data;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TimelineEvent {
 
 	private String title, description, location, date;
-	private ArrayList<File> files;
+	private List<File> files;
 	
 	public TimelineEvent(String eventTitle, String eventLocation, String eventDate, String eventDescription) {
 		title = eventTitle;
 		description = eventDescription;
 		date = eventDate;
 		location = eventLocation;
+	}
+	
+	public TimelineEvent(String eventTitle, String eventLocation, String eventDate, String eventDescription, List<File> eventfiles) {
+		title = eventTitle;
+		description = eventDescription;
+		date = eventDate;
+		location = eventLocation;
+		setFiles(eventfiles);
 	}
 
 	public String getTitle() {
@@ -47,6 +56,52 @@ public class TimelineEvent {
 		this.date = date;
 	}
 	
+	public String getPrettyDate() {
+		String dateString;
+		String oldDate = this.getDate();
+		String year = oldDate.substring(0,4);
+		String day = oldDate.substring(8);
+		String month;
+        switch (oldDate.substring(5,7)) {
+            case "01":  month = "January";
+                     break;
+            case "02":  month = "February";
+                     break;
+            case "03":  month = "March";
+                     break;
+            case "04":  month = "April";
+                     break;
+            case "05":  month = "May";
+                     break;
+            case "06":  month = "June";
+                     break;
+            case "07":  month = "July";
+                     break;
+            case "08":  month = "August";
+                     break;
+            case "09":  month = "September";
+                     break;
+            case "10": month = "October";
+                     break;
+            case "11": month = "November";
+                     break;
+            case "12": month = "December";
+                     break;
+            default: month = "Invalid month";
+                     break;
+        }
+        dateString = month + " " + day + ", " + year;
+		
+		return dateString;
+	}
+
+	public List<File> getFiles() {
+		return files;
+	}
+
+	public void setFiles(List<File> files) {
+		this.files = files;
+	}
 	
 	
 }

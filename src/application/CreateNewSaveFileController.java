@@ -51,6 +51,15 @@ public class CreateNewSaveFileController {
 		}else {
 			System.out.println("mkdir failed --- duplicate project?");
 		}
+		//Creates Pictures Directory
+		file = new File(path + "\\Pictures");
+		if(file.mkdir()) {
+			System.out.println("Directory created at " + path);
+			Main.PROJECT_PATH = path; //This is so that a running instance of the app knows WHICH project folder to look in for data
+		}else {
+			System.out.println("mkdir for pictures failed...");
+		}
+		
 	}
 	
 	// THIS IS NOT SUFFICIENT STRING VERIFICATION (Add more l8r)

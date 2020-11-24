@@ -18,7 +18,7 @@
       <TextField fx:id="EventTitleTextField" layoutX="80.0" layoutY="81.0" prefHeight="25.0" prefWidth="175.0" />
       <TextField fx:id="EventLocationTextField" layoutX="80.0" layoutY="124.0" prefHeight="25.0" prefWidth="175.0" />
       <DatePicker fx:id="EventDatePicker" layoutX="406.0" layoutY="81.0" />
-      <Button fx:id="UploadButton" layoutX="309.0" layoutY="149.0" mnemonicParsing="false" text="Upload File(s)" />
+      <Button fx:id="UploadButton" layoutX="309.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#uploadPhoto" text="Upload File(s)" />
       <ListView fx:id="FileList" layoutX="408.0" layoutY="149.0" prefHeight="144.0" prefWidth="221.0" />
       <Button fx:id="DoneButton" layoutX="577.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="40.0" prefWidth="88.0" text="Done" />
       <Button fx:id="CancelButton" layoutX="474.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#closeStage" prefHeight="40.0" prefWidth="88.0" text="Cancel" />

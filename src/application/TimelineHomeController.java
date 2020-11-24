@@ -1,8 +1,12 @@
 package application;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.simple.parser.ParseException;
 
@@ -22,6 +26,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class TimelineHomeController {
@@ -52,7 +58,7 @@ public class TimelineHomeController {
 		if(EventListView.getSelectionModel().getSelectedItem() != null) {
 			//System.out.println(Metadata.EVENT_LIST.size());
 			TimelineEvent event = Metadata.getEvent(EventListView.getSelectionModel().getSelectedItem());
-			EventTextArea.setText(event.getLocation() + "  -  " + event.getDate() + "\n" + event.getDescription());
+			EventTextArea.setText(event.getLocation() + "  -  " + event.getPrettyDate() + "\n" + event.getDescription());
 			
 		}
 	}
@@ -85,13 +91,31 @@ public class TimelineHomeController {
 		}
 	}
 	
+	//Saves Event data to Json, directories, and program memory
 	@FXML
 	private void createEvent() throws IOException, ParseException {
+		TimelineEvent newEvent;
+		if(FileList.getItems().isEmpty()) {
 		//instantiate TimelineEvent Class
-		TimelineEvent newEvent = new TimelineEvent(EventTitleTextField.getText(), 
+			newEvent = new TimelineEvent(EventTitleTextField.getText(), 
 				EventLocationTextField.getText(), 
 				EventDatePicker.getValue().toString(), 
 				EventDescriptionTextArea.getText());
+		}else {
+			newEvent = new TimelineEvent(EventTitleTextField.getText(), 
+					EventLocationTextField.getText(), 
+					EventDatePicker.getValue().toString(), 
+					EventDescriptionTextArea.getText(),
+					FileList.getItems());
+			
+			File pictureDirectory = new File(Main.PROJECT_PATH + "\\Pictures");
+			for(int i = 0; i < newEvent.getFiles().size(); i++) {
+				///////////////////////////
+				//	NEED TO SAVE FILES TO /Pictures
+				//////////////////////////
+			}
+			
+		}
 		
 		JsonWriter.writeEvent(newEvent);
 		AddEventPane.setVisible(false);
@@ -107,6 +131,35 @@ public class TimelineHomeController {
 		secondaryStage.close();
 	}
 	
+	@FXML 
+	private void uploadPhoto() {
+		FileChooser fileChooser = new FileChooser();
+		//Sets file extension type filters (Pictures)
+		fileChooser.getExtensionFilters().addAll
+				(new FileChooser.ExtensionFilter("Picture Files", "*.jpg", "*.png"));
+		
+		//Setting initial directory (finds current system user)
+		File initialDirectory;
+		String user = System.getProperty("user.name"); //platform independent
+		List<File> selectedFiles;
+		try {
+			initialDirectory = new File("C:\\Users\\" + user + "\\Pictures" );
+			fileChooser.setInitialDirectory(initialDirectory);	
+			selectedFiles = fileChooser.showOpenMultipleDialog(Main.stage);
+		} catch(Exception e) {
+			initialDirectory = new File("C:\\Users\\" + user);
+			fileChooser.setInitialDirectory(initialDirectory);
+			selectedFiles = fileChooser.showOpenMultipleDialog(Main.stage);
+		}
+		
+		//Add to JSON and Field
+		
+		for(int i = 0; i < selectedFiles.size(); i++) {
+			String filename = selectedFiles.get(i).getName(); //get filename
+			FileList.getItems().add(selectedFiles.get(i)); //add File to list view
+			
+		}
+	}
 
 	
 	

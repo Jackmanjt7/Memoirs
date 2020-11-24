@@ -45,7 +45,7 @@ public class StartupPanelController {
 		try {
 			System.out.println(Main.PROJECT_PATH);
 			JsonReader.fillPersonalInfoClassFromJson();
-		} catch (Exception e1) {
+		} catch (Exception e) {
 			//e1.printStackTrace();
 			System.out.println("Couldnt Fill Personal Info Class from JSON");
 		}
