@@ -29,13 +29,14 @@
 }
 
 .header{
+	-fx-text-fill: #51536d;
 	font-family: Biryani-Regular;
  	src: url('fonts/Biryani-Regular.ttf');
 	-fx-font-size: 18;
 }
 
 .imageview{
-	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 20, 0, 0, 0);
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 50, 0, 0, 0);
 }
 
 .stackpane{
