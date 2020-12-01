@@ -50,6 +50,13 @@ public class TimelineHomeController {
 	@FXML ListView<File> PicturesListView;
 	Image displayedImage;
 	
+	static FXMLLoader mainLoader;
+	
+	public void setMainLoader(FXMLLoader loader) {
+		mainLoader = loader;
+	}
+	
+	
 	@FXML
 	public void displayInfo(){
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -101,6 +108,7 @@ public class TimelineHomeController {
 			Parent root = fxmlLoader.load();		
 			secondaryStage.setScene(new Scene(root));
 			secondaryStage.show();
+			
 			//s.close();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -154,6 +162,7 @@ public class TimelineHomeController {
 		Metadata.EVENT_LIST.add(newEvent);
 		//EventListView.getItems().add(newEvent.getTitle());
 		secondaryStage.close();
+		((TimelineHomeController) mainLoader.getController()).fillEventListView();
 	}
 	
 	
@@ -183,6 +192,7 @@ public class TimelineHomeController {
 			fileChooser.setInitialDirectory(initialDirectory);
 			selectedFiles = fileChooser.showOpenMultipleDialog(Main.stage);
 		}
+		
 		
 		//Add to Field
 		

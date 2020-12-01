@@ -59,6 +59,7 @@ public class StartupPanelController {
 			Main.stage.show();
 			//fill list upon display
 			((TimelineHomeController) fxmlLoader.getController()).fillEventListView();
+			((TimelineHomeController) fxmlLoader.getController()).setMainLoader(fxmlLoader);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

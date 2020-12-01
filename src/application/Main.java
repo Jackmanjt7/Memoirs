@@ -23,7 +23,7 @@ public class Main extends Application {
 	        Scene scene = new Scene(root);
 	        stage.setScene(scene);
 //	        loader.setRoot(root);
-	        stage.setTitle("StartupPanel");
+	        stage.setTitle("Memoir: Digital Photo Album");
 	        stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

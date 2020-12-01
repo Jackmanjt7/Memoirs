@@ -1,29 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768" prefWidth="1099.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TimelineHomeController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="806.0" prefWidth="1157.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TimelineHomeController">
    <children>
-      <Button layoutX="28.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#displayInfo" text="View Info" />
-      <Button fx:id="AddEventButton" layoutX="110.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#addEvent" text="Add Event" />
-      <ImageView fx:id="MainImageView" fitHeight="315.0" fitWidth="478.0" layoutX="595.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
-      <ListView fx:id="EventListView" layoutX="28.0" layoutY="63.0" onMouseClicked="#displaySelectedEvent" prefHeight="484.0" prefWidth="305.0" />
-      <TextArea fx:id="EventTextArea" editable="false" layoutX="525.0" layoutY="517.0" prefHeight="200.0" prefWidth="478.0" wrapText="true" />
-      <Button layoutX="525.0" layoutY="477.0" mnemonicParsing="false" onMouseClicked="#prevImage" text="Prev" />
-      <Button layoutX="952.0" layoutY="477.0" mnemonicParsing="false" onMouseClicked="#nextImage" prefWidth="51.0" text="Next" />
+      <Button layoutX="14.0" layoutY="705.0" mnemonicParsing="false" onMouseClicked="#displayInfo" text="View Info" />
+      <Button fx:id="AddEventButton" layoutX="98.0" layoutY="705.0" mnemonicParsing="false" onMouseClicked="#addEvent" text="Add Event" />
+      <ListView fx:id="EventListView" layoutX="28.0" layoutY="63.0" onMouseClicked="#displaySelectedEvent" prefHeight="618.0" prefWidth="305.0" />
+      <TextArea fx:id="EventTextArea" editable="false" layoutX="589.0" layoutY="490.0" prefHeight="204.0" prefWidth="533.0" wrapText="true" />
+      <Button layoutX="589.0" layoutY="433.0" mnemonicParsing="false" onMouseClicked="#prevImage" text="Prev" />
+      <Button layoutX="1071.0" layoutY="433.0" mnemonicParsing="false" onMouseClicked="#nextImage" prefWidth="51.0" text="Next" />
       <ListView fx:id="PicturesListView" layoutX="364.0" layoutY="63.0" onMouseClicked="#displaySelectedImage" prefHeight="359.0" prefWidth="200.0" />
-      <Text layoutX="155.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Events" wrappingWidth="50.99998742341995" />
-      <Text layoutX="464.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pictures" wrappingWidth="50.99998742341995" />
+      <Text layoutX="28.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Events" wrappingWidth="70.11131808161736" />
+      <Text layoutX="364.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Pictures" wrappingWidth="76.99998742341995" />
+      <ImageView fx:id="MainImageView" fitHeight="359.0" fitWidth="533.0" layoutX="589.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" styleClass="imageview" />
+      <Button fx:id="AddEventButton1" layoutX="272.0" layoutY="705.0" mnemonicParsing="false" onMouseClicked="#addEvent" text="Remove Event" />
+      <Button fx:id="AddEventButton2" layoutX="187.0" layoutY="705.0" mnemonicParsing="false" onMouseClicked="#addEvent" text="Edit Event" />
+      <MenuBar layoutX="1.0" layoutY="1.0" prefHeight="25.0" prefWidth="1157.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </Pane>
